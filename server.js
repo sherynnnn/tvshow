@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 // create the express app
 const app = express();
+app.use(express.json());
 
 // connect to MongoDB
 mongoose
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 // import all the routes
 const movieRouter = require("./routes/tvshow");
 
-app.use("/tvshows", movieRouter);
+app.use("/tvshows", tvshowRouter);
 
 // start the server
 app.listen(5555, () => {
